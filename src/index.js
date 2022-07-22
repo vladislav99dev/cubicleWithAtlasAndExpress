@@ -1,10 +1,15 @@
 const express = require('express');
+const path = require('path');
+
+const initHandlebars = require('./config/initHandlebars')
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, "./static")))
+initHandlebars(app)
+
 app.get('/',(req,res) => {
-    res.send('You are on the home page')
-    res.end(); 
+    res.render('index')
 })
 
 app.listen(3000, () => {
