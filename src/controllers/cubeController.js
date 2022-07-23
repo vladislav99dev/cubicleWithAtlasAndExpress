@@ -1,10 +1,23 @@
 const router = require('express').Router();
 
-router.get('/create', (req,res) => {
+
+const displayCreatePage = (req,res) => {
     res.render('create')
-})
-router.get('/details/:cubeId', (req,res) => {
+};
+
+const displayDetailsPage = (req,res) => {
     res.render('details')
-})
+};
+
+const createCubeHandler = (req,res) => {
+    console.log(req.body);
+    res.end();
+}
+
+
+router.get('/create', displayCreatePage);
+router.post('/create', createCubeHandler);
+
+router.get('/details/:cubeId',displayDetailsPage )
 
 module.exports = router
