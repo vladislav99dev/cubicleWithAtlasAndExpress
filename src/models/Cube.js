@@ -18,5 +18,5 @@ const cubeSchema = new mongoose.Schema({
     required: true,
   },
 });
-const Cube = mongoose.Model('Cube', cubeSchema)
+const Cube = mongoose.model('Cube', cubeSchema)
 module.exports = Cube;
