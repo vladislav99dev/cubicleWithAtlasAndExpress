@@ -9,10 +9,10 @@ const displayDetailsPage = (req, res) => {
   cubeService.findById(req.params.cubeId)
   .then((cube) => {
     res.render('details', cube)
-    
   })
   .catch((err) => {
 
+    res.render('404',{err:err.message})
   })
 };
 
