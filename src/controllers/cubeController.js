@@ -6,14 +6,14 @@ const displayCreatePage = (req, res) => {
 };
 
 const displayDetailsPage = (req, res) => {
-  cubeService.findById(req.params.cubeId)
-  .then((cube) => {
-    res.render('details', cube)
-  })
-  .catch((err) => {
-
-    res.render('404',{err:err.message})
-  })
+  cubeService
+    .findById(req.params.cubeId)
+    .then((cube) => {
+      res.render("details", cube);
+    })
+    .catch((err) => {
+      res.render("404", { err: err.message });
+    });
 };
 
 const createCubeHandler = (req, res) => {
@@ -25,11 +25,11 @@ const createCubeHandler = (req, res) => {
         res.redirect("/");
       })
       .catch((err) => {
-        res.render('create', {err: err.message})
+        res.render("create", { err: err.message });
       });
   } else {
-    let err = 'All fileds should be filled.'
-    res.render('create', {err})
+    let err = "All fileds should be filled.";
+    res.render("create", { err });
   }
 };
 
