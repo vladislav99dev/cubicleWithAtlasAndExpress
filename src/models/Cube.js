@@ -16,13 +16,17 @@ const cubeSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: [/^https:\/\/\S+/, 'The url you provided is not in the expected format.']
-    
-
   },
   difficulty: {
     type: String,
     required: true,
   },
+  accessories: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: 'Accessory'
+    }
+  ]
 });
 const Cube = mongoose.model('Cube', cubeSchema)
 module.exports = Cube;
