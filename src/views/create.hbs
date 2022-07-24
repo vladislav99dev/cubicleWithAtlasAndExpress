@@ -1,5 +1,8 @@
 <main>
   <h1>Create</h1>
+  {{#if err}}
+  <p>{{err}}</p>
+  {{/if}}
   <div class="form">
     <form action='/cube/create' method="POST">
       <label for="name">Name</label>

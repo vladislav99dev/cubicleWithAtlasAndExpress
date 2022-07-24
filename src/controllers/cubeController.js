@@ -9,7 +9,7 @@ const displayDetailsPage = (req, res) => {
   res.render("details");
 };
 
-const createCubeHandler = (req, res) => {
+const createCubeHandler = (req, res, next) => {
   const { name, description, imageUrl, difficulty } = req.body;
   if (name && description && imageUrl && difficulty) {
     cubeService
@@ -18,13 +18,11 @@ const createCubeHandler = (req, res) => {
         res.redirect("/");
       })
       .catch((err) => {
-        // we should add error name here errors should be thrown from the model itself
-        console.log(err);
-        console.log("Error");
+        res.render('create', {err: err.message})
       });
   } else {
-    // we should add error name here
-    console.log(name, description, imageUrl, difficulty);
+    let err = 'All fileds should be filled.'
+    res.render('create', {err})
   }
 };
 
