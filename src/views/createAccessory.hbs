@@ -1,5 +1,8 @@
 <main>
   <h1>Create Accessory</h1>
+  {{#if err}}
+    <p>{{err}}</p>
+  {{/if}}
   <div class="form">
     <form action="/accessory/create" method="POST">
       <label for="name">Name</label>
