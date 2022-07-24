@@ -9,10 +9,15 @@ const getAll = () => {
     return Cube.find().lean()
 }
 
+const findById = (id) => {
+    return Cube.findById(id)
+}
+
 
 const cubeService = {
     create,
-    getAll
+    getAll,
+    findById
 }
 
 module.exports = cubeService

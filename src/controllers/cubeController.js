@@ -6,10 +6,17 @@ const displayCreatePage = (req, res) => {
 };
 
 const displayDetailsPage = (req, res) => {
-  res.render("details");
+  cubeService.findById(req.params.cubeId)
+  .then((cube) => {
+    res.render('details', cube)
+    
+  })
+  .catch((err) => {
+
+  })
 };
 
-const createCubeHandler = (req, res, next) => {
+const createCubeHandler = (req, res) => {
   const { name, description, imageUrl, difficulty } = req.body;
   if (name && description && imageUrl && difficulty) {
     cubeService
