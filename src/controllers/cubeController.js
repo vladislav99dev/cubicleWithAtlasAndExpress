@@ -7,10 +7,11 @@ const displayCreatePage = (req, res) => {
   res.render("create");
 };
 
-const displayDetailsPage = (req, res) => {
+const displayDetailsPage = async (req, res) => {
   cubeService
     .findById(req.params.cubeId)
     .then((cube) => {
+      console.log(cube);
       res.render("details", cube);
     })
     .catch((err) => {
