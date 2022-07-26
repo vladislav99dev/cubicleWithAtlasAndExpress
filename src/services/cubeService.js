@@ -9,7 +9,7 @@ const getAll = () => {
 };
 
 const findById = (id) => {
-  return Cube.findById(id);
+  return Cube.findById(id).lean();
 };
 
 const cubeService = {
