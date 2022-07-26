@@ -5,12 +5,16 @@ const create = (name, description, imageUrl) => {
 };
 
 const getAll = () => {
-  return Accessory.find();
+  return Accessory.find().lean();
+}
+const findById = (id) => {
+  return Accessory.findById(id);
 }
 
 const accessoryService = {
   create,
   getAll,
+  findById
 };
 
 module.exports = accessoryService;
