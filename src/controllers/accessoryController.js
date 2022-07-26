@@ -8,7 +8,6 @@ const displayCreatePage = (req, res) => {
 const createAccessoryHandler = (req, res) => {
   const { name, description, imageUrl } = req.body;
   if (name && description && imageUrl) {
-    console.log(name,description,imageUrl)
     accessoryService
       .create(name, description, imageUrl)
       .then((dbResponse) => {
