@@ -10,6 +10,7 @@ const displayCreatePage = (req, res) => {
 const displayDetailsPage = async (req, res) => {
   cubeService
     .findById(req.params.cubeId)
+    .populate("accessories")
     .then((cube) => {
       console.log(cube);
       res.render("details", cube);
